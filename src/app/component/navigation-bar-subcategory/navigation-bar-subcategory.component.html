@@ -1,0 +1,10 @@
+<ng-container *ngIf="component.data$ | async as data ">
+  <ng-container *ngIf="getForCode(data.category) as subcat">
+    <div class="subcategories">
+      <ng-container *ngFor="let item of subcat">
+        <a href="{{item.url}}">{{item.name}}</a>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>
+

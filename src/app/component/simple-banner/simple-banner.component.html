@@ -1,0 +1,6 @@
+<div class="cont">
+  <ng-container *ngIf="component.data$ | async as data">
+    <cx-media *ngIf="data.bannerImage" [container]="data.bannerImage" format="thumbnail">
+    </cx-media>
+  </ng-container>
+</div>

@@ -1,0 +1,19 @@
+.subcategories {
+  float: left;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  min-width: 150px;
+  border-right: #ccc solid 1px;
+  border-bottom: #ccc solid 1px;
+  border-left: #ccc solid 1px;
+  text-align: left;
+
+  a {
+    padding: 10px;
+    color: grey;
+    &:hover{
+      color: black;
+    }
+  }
+}

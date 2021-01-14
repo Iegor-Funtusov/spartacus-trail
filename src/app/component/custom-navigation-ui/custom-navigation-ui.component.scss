@@ -1,0 +1,43 @@
+.wrapper.custom {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 0px;
+  height: 70%;
+  border: none;
+  border-bottom: 1px #ccc solid;
+  border-left: 1px #ccc solid;
+  border-right: 1px #ccc solid;
+  .group {
+    align-items: flex-start;
+    padding-bottom: 50px;
+    padding-top: 10px;
+    cx-generic-link.all {
+      padding: 20px;
+    }
+    cx-media {
+      float: left;
+    }
+    .components {
+      position: absolute;
+      display: flex;
+      top: 0;
+      left: 100%;
+      height: calc(100% + 1px);
+      width:auto;
+      background-color: white;
+      display: none;
+
+      &:hover {
+        display: flex;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.wrapper.custom .group:hover .components {
+  display: flex;
+}

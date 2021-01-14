@@ -1,0 +1,44 @@
+<ng-container *ngFor="let node of rootNavigationNode?.children">
+  <nav tabindex="0" (mouseenter)="caretDown($event)" (mouseleave)="caretRight($event)">
+
+    <h5 [attr.aria-label]="node.uid">
+      {{node.title}}
+      <cx-icon *ngIf="node.children?.length > 0" [type]="iconType.CARET_RIGHT"></cx-icon>
+    </h5>
+
+    <div class="wrapper custom">
+      <ng-container *ngFor="let child of node.children">
+        <div class="group">
+          <!-- we can access category code even before we got to node entries -->
+          <ng-container *ngIf="child.categoryCode">
+            <div class="super-category-code hidden">
+              {{child.categoryCode}}
+            </div>
+          </ng-container>
+          <!-- same here with the image -->
+          <cx-media *ngIf="child.thumbnailImage" [container]="child.thumbnailImage" format="thumbnail">
+          </cx-media>
+          <!-- and category title -->
+          <cx-generic-link class="all">
+            {{child.title}}
+          </cx-generic-link>
+          <!--
+            finally, we got to the entries and we can iterate over them and invoke an angular controller
+            that is unique for each component type to render it
+          -->
+          <ng-container *ngIf="child.entries">
+            <div class="components">
+              <ng-container *ngFor="let item of child.entries" [cxComponentWrapper]="{
+                            flexType: item.itemType,
+                            typeCode: item.itemType,
+                            uid: item?.itemId
+                        }">
+              </ng-container>
+            </div>
+          </ng-container>
+
+        </div>
+      </ng-container>
+    </div>
+  </nav>
+</ng-container>
