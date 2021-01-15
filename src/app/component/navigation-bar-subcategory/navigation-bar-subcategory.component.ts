@@ -20,7 +20,7 @@ export class NavigationBarSubcategoryComponent implements OnInit {
   private $categoryState: Observable<Array<{ id: number; value: any }>>;
 
   constructor(
-    private component: CmsComponentData<NavigationBarParentCategoryComponent>,
+    public component: CmsComponentData<NavigationBarParentCategoryComponent>,
     private store: Store<State<CategoryState>>,
   ) {
     this.component.data$.subscribe(it =>
@@ -34,7 +34,7 @@ export class NavigationBarSubcategoryComponent implements OnInit {
     );
   }
 
-  private getForCode(code): [any] {
+  getForCode(code): [any] {
     let result;
     this.$categoryState.subscribe(it => {
       const subcategory = it.find(category => category.id === code);

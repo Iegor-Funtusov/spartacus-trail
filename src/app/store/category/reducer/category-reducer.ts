@@ -15,18 +15,12 @@ export const initialCategoryState: CategoryState = {
 
 export const actionCreator = createAction(
   categoryActions.CATEGORY_ACTION_SUCCESS,
-  props<{
-    payload: NavigationBarSubcategory
-  }>()
+  props<{ payload: NavigationBarSubcategory }>()
 );
 
 export const categoryReducer = createReducer(
   initialCategoryState,
-  on(actionCreator, (state, { payload }) =>
-    (
-      update(state, payload)
-    )
-  )
+  on(actionCreator, (state, { payload }) => ( update(state, payload) ))
 );
 
 function update(prevState: CategoryState, payload): CategoryState {

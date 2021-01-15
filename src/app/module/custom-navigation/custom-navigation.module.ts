@@ -13,14 +13,12 @@ import {
 import { CustomNavigationUiComponent } from '../../component/custom-navigation-ui/custom-navigation-ui.component';
 import { SimpleBannerComponent } from '../../component/simple-banner/simple-banner.component';
 import { NavigationBarSubcategoryComponent } from '../../component/navigation-bar-subcategory/navigation-bar-subcategory.component';
-import { SimpleImageNavBarBannerComponent } from '../../component/simple-image-nav-bar-banner/simple-image-nav-bar-banner.component';
 
 @NgModule({
   declarations: [
     SimpleBannerComponent,
     CustomNavigationUiComponent,
-    NavigationBarSubcategoryComponent,
-    SimpleImageNavBarBannerComponent
+    NavigationBarSubcategoryComponent
   ],
   imports: [
     CommonModule,

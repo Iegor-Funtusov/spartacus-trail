@@ -1,10 +1,11 @@
 import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICON_TYPE, IconLoaderService, NavigationUIComponent } from '@spartacus/storefront';
-import { CmsNavigationComponent, CmsNavigationNode, CmsService, ContentSlotComponentData } from '@spartacus/core';
+import { CmsNavigationComponent, CmsService, ContentSlotComponentData } from '@spartacus/core';
+
 import { CustomComponentWrapper } from '../../data/custom-component-wrapper.data';
-import {CustomCmsNavigationNode} from '../../data/custom-navigation-node.data';
-import {NavigationBarService} from '../../service/navigation-bar.service';
+import { CustomCmsNavigationNode } from '../../data/custom-navigation-node.data';
+import { NavigationBarService } from '../../service/navigation-bar.service';
 
 @Component({
   selector: 'cx-navigation-ui',
@@ -18,7 +19,7 @@ export class CustomNavigationUiComponent extends NavigationUIComponent implement
 
   @Input()
   contentSlotData: CustomComponentWrapper<ContentSlotComponentData>;
-  private rootNavigationNode: CustomCmsNavigationNode;
+  rootNavigationNode: CustomCmsNavigationNode;
   private caretDownClasses: string;
   private caretRightClasses: string;
 
@@ -37,9 +38,8 @@ export class CustomNavigationUiComponent extends NavigationUIComponent implement
     const $navigationComponentData = this.cmsService.getComponentData<CmsNavigationComponent>(this.contentSlotData.component.uid);
     $navigationComponentData.subscribe({
       next: componentData => {
-        this.rootNavigationNode = this.navigationBarService.convert(componentData.navigationNode); // <-- convert navigationNode data to the extended type
-        this.navigationBarService.populateNavigationNodeImage(this.rootNavigationNode); // <-- populate the extended type with supercategory name and thumbnail image
-        // see the implementation of the navigationBarService below
+        this.rootNavigationNode = this.navigationBarService.convert(componentData.navigationNode);
+        this.navigationBarService.populateNavigationNodeImage(this.rootNavigationNode);
       }
     });
     this.initCaretClasses();
@@ -65,5 +65,4 @@ export class CustomNavigationUiComponent extends NavigationUIComponent implement
     this.caretDownClasses = this.iconLoaderService.getStyleClasses(ICON_TYPE.CARET_DOWN);
     this.caretRightClasses = this.iconLoaderService.getStyleClasses(ICON_TYPE.CARET_RIGHT);
   }
-
 }

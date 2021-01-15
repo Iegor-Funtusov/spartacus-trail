@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
-export const CATEGORY_ACTION = "[Category Page] Load Category For Code";
-export const CATEGORY_ACTION_SUCCESS = "[Category Page] Load Category For Code Success";
+export const CATEGORY_ACTION = '[Category Page] Load Category For Code';
+export const CATEGORY_ACTION_SUCCESS = '[Category Page] Load Category For Code Success';
 
 export class CategoryAction implements Action {
   type = CATEGORY_ACTION;
